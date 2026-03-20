@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Maispace\Timeline\Domain\Repository;
+namespace Maispace\MaiTimeline\Domain\Repository;
 
-use Maispace\Timeline\Domain\Model\TimelineEntry;
+use Maispace\MaiTimeline\Domain\Model\TimelineEntry;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;

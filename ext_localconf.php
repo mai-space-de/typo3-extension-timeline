@@ -4,13 +4,13 @@ defined('TYPO3') or die();
 
 (function (): void {
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Timeline',
-        'Timeline',
+        'MaiTimeline',
+        'MaiTimeline',
         [
-            \Maispace\Timeline\Controller\TimelineController::class => 'index,compact,show',
+            \Maispace\MaiTimeline\Controller\TimelineController::class => 'index,compact,show',
         ],
         [
-            \Maispace\Timeline\Controller\TimelineController::class => '',
+            \Maispace\MaiTimeline\Controller\TimelineController::class => '',
         ],
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
     );

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Maispace\Timeline\Domain\Model;
+namespace Maispace\MaiTimeline\Domain\Model;
 
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;

@@ -1,5 +1,5 @@
 {
-    "name": "maispace/timeline",
+    "name": "maispace/mai-timeline",
     "description": "A timeline extension for TYPO3 with vertical, compact, and detail views.",
     "type": "typo3-cms-extension",
     "license": "GPL-2.0-or-later",
@@ -19,17 +19,17 @@
     },
     "autoload": {
         "psr-4": {
-            "Maispace\\Timeline\\": "Classes/"
+            "Maispace\\MaiTimeline\\": "Classes/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Maispace\\Timeline\\Tests\\": "Tests/"
+            "Maispace\\MaiTimeline\\Tests\\": "Tests/"
         }
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "timeline"
+            "extension-key": "mai_timeline"
         }
     }
 }

@@ -1,4 +1,4 @@
-plugin.tx_timeline_timeline {
+plugin.tx_maitimeline_timeline {
     persistence {
         storagePid = 0
     }

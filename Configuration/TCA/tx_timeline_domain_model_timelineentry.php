@@ -4,7 +4,7 @@ defined('TYPO3') or die();
 
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:timeline/Resources/Private/Language/locallang_db.xlf:tx_timeline_domain_model_timelineentry',
+        'title' => 'LLL:EXT:mai_timeline/Resources/Private/Language/locallang_db.xlf:tx_maitimeline_domain_model_timelineentry',
         'label' => 'title',
         'label_alt' => 'year',
         'label_alt_force' => true,
@@ -18,7 +18,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'year,title,description',
-        'iconfile' => 'EXT:timeline/Resources/Public/Icons/tx_timeline_domain_model_timelineentry.svg',
+        'iconfile' => 'EXT:mai_timeline/Resources/Public/Icons/tx_maitimeline_domain_model_timelineentry.svg',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
@@ -73,7 +73,7 @@ return [
         ],
         'year' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:timeline/Resources/Private/Language/locallang_db.xlf:tx_timeline_domain_model_timelineentry.year',
+            'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/locallang_db.xlf:tx_maitimeline_domain_model_timelineentry.year',
             'config' => [
                 'type' => 'number',
                 'size' => 6,
@@ -86,7 +86,7 @@ return [
         ],
         'title' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:timeline/Resources/Private/Language/locallang_db.xlf:tx_timeline_domain_model_timelineentry.title',
+            'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/locallang_db.xlf:tx_maitimeline_domain_model_timelineentry.title',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
@@ -97,7 +97,7 @@ return [
         ],
         'description' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:timeline/Resources/Private/Language/locallang_db.xlf:tx_timeline_domain_model_timelineentry.description',
+            'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/locallang_db.xlf:tx_maitimeline_domain_model_timelineentry.description',
             'config' => [
                 'type' => 'text',
                 'enableRichtext' => true,
@@ -107,7 +107,7 @@ return [
         ],
         'media' => [
             'exclude' => false,
-            'label' => 'LLL:EXT:timeline/Resources/Private/Language/locallang_db.xlf:tx_timeline_domain_model_timelineentry.media',
+            'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/locallang_db.xlf:tx_maitimeline_domain_model_timelineentry.media',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'media',
                 [
@@ -131,7 +131,7 @@ return [
         ],
         'categories' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:timeline/Resources/Private/Language/locallang_db.xlf:tx_timeline_domain_model_timelineentry.categories',
+            'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/locallang_db.xlf:tx_maitimeline_domain_model_timelineentry.categories',
             'config' => [
                 'type' => 'category',
             ],

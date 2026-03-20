@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Maispace\Timeline\Controller;
+namespace Maispace\MaiTimeline\Controller;
 
-use Maispace\Timeline\Domain\Model\TimelineEntry;
-use Maispace\Timeline\Domain\Repository\TimelineEntryRepository;
+use Maispace\MaiTimeline\Domain\Model\TimelineEntry;
+use Maispace\MaiTimeline\Domain\Repository\TimelineEntryRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;

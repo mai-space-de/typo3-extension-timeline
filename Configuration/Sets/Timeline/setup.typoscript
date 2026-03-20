@@ -1,11 +1,11 @@
-plugin.tx_timeline_timeline {
+plugin.tx_maitimeline_timeline {
     view {
-        templateRootPaths.0 = EXT:timeline/Resources/Private/Templates/
-        partialRootPaths.0 = EXT:timeline/Resources/Private/Partials/
-        layoutRootPaths.0 = EXT:timeline/Resources/Private/Layouts/
+        templateRootPaths.0 = EXT:mai_timeline/Resources/Private/Templates/
+        partialRootPaths.0 = EXT:mai_timeline/Resources/Private/Partials/
+        layoutRootPaths.0 = EXT:mai_timeline/Resources/Private/Layouts/
     }
     persistence {
-        storagePid = {$plugin.tx_timeline_timeline.persistence.storagePid}
+        storagePid = {$plugin.tx_maitimeline_timeline.persistence.storagePid}
     }
     settings {
         orderDirection = DESC
