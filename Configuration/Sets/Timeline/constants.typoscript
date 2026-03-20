@@ -1,0 +1,5 @@
+plugin.tx_timeline_timeline {
+    persistence {
+        storagePid = 0
+    }
+}

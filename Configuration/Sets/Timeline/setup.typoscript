@@ -1,0 +1,15 @@
+plugin.tx_timeline_timeline {
+    view {
+        templateRootPaths.0 = EXT:timeline/Resources/Private/Templates/
+        partialRootPaths.0 = EXT:timeline/Resources/Private/Partials/
+        layoutRootPaths.0 = EXT:timeline/Resources/Private/Layouts/
+    }
+    persistence {
+        storagePid = {$plugin.tx_timeline_timeline.persistence.storagePid}
+    }
+    settings {
+        orderDirection = DESC
+        limit = 0
+        categoryUid = 0
+    }
+}
