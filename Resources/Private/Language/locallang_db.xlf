@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="messages" date="2024-01-01T00:00:00Z"
+          product-name="timeline">
+        <header/>
+        <body>
+            <trans-unit id="tx_timeline_domain_model_timelineentry" resname="tx_timeline_domain_model_timelineentry">
+                <source>Timeline Entry</source>
+            </trans-unit>
+            <trans-unit id="tx_timeline_domain_model_timelineentry.year" resname="tx_timeline_domain_model_timelineentry.year">
+                <source>Year</source>
+            </trans-unit>
+            <trans-unit id="tx_timeline_domain_model_timelineentry.title" resname="tx_timeline_domain_model_timelineentry.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tx_timeline_domain_model_timelineentry.description" resname="tx_timeline_domain_model_timelineentry.description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="tx_timeline_domain_model_timelineentry.media" resname="tx_timeline_domain_model_timelineentry.media">
+                <source>Media</source>
+            </trans-unit>
+            <trans-unit id="tx_timeline_domain_model_timelineentry.categories" resname="tx_timeline_domain_model_timelineentry.categories">
+                <source>Categories</source>
+            </trans-unit>
+            <trans-unit id="flexform.settings.orderDirection" resname="flexform.settings.orderDirection">
+                <source>Sort order</source>
+            </trans-unit>
+            <trans-unit id="flexform.settings.orderDirection.desc" resname="flexform.settings.orderDirection.desc">
+                <source>Newest first (descending)</source>
+            </trans-unit>
+            <trans-unit id="flexform.settings.orderDirection.asc" resname="flexform.settings.orderDirection.asc">
+                <source>Oldest first (ascending)</source>
+            </trans-unit>
+            <trans-unit id="flexform.settings.limit" resname="flexform.settings.limit">
+                <source>Limit (0 = no limit)</source>
+            </trans-unit>
+            <trans-unit id="flexform.settings.categoryUid" resname="flexform.settings.categoryUid">
+                <source>Filter by category</source>
+            </trans-unit>
+            <trans-unit id="plugin.timeline.title" resname="plugin.timeline.title">
+                <source>Timeline</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
