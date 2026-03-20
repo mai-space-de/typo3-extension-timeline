@@ -1,35 +1,39 @@
 {
-    "name": "maispace/mai-timeline",
-    "description": "A timeline extension for TYPO3 with vertical, compact, and detail views.",
-    "type": "typo3-cms-extension",
-    "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "maispace",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "typo3/cms-core": "^12.0",
-        "typo3/cms-extbase": "^12.0",
-        "typo3/cms-fluid": "^12.0"
-    },
-    "require-dev": {
-        "typo3/testing-framework": "^8.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Maispace\\MaiTimeline\\": "Classes/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Maispace\\MaiTimeline\\Tests\\": "Tests/"
-        }
-    },
-    "extra": {
-        "typo3/cms": {
-            "extension-key": "mai_timeline"
-        }
+  "name": "maispace/mai-timeline",
+  "description": "A timeline extension for TYPO3 with vertical, compact, and detail views.",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "maispace",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "php": "^8.2",
+    "typo3/cms-core": "^13.4",
+    "typo3/cms-extbase": "^13.4",
+    "typo3/cms-fluid": "^13.4"
+  },
+  "require-dev": {
+    "typo3/testing-framework": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Maispace\\MaiTimeline\\": "Classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Maispace\\MaiTimeline\\Tests\\": "Tests/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "mai_timeline"
+    },
+    "branch-alias": {
+      "dev-main": "13.0.x-dev"
+    }
+  }
 }

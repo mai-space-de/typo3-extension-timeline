@@ -108,26 +108,24 @@ return [
         'media' => [
             'exclude' => false,
             'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/locallang_db.xlf:tx_maitimeline_domain_model_timelineentry.media',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'media',
-                [
-                    'appearance' => [
-                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
-                        'showPossibleLocalizationRecords' => true,
-                    ],
-                    'overrideChildTca' => [
-                        'types' => [
-                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
-                                'showitem' => '--linebreak--,
+            'config' => [
+                'type' => 'file',
+                'allowed' => 'common-image-types',
+                'minitems' => 0,
+                'maxitems' => 10,
+                'appearance' => [
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+                    'showPossibleLocalizationRecords' => true,
+                ],
+                'overrideChildTca' => [
+                    'types' => [
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                            'showitem' => '--linebreak--,
                                     --palette--;;filePalette',
-                            ],
                         ],
                     ],
-                    'minitems' => 0,
-                    'maxitems' => 10,
                 ],
-                'jpg,jpeg,png,gif,webp,svg'
-            ),
+            ],
         ],
         'categories' => [
             'exclude' => true,
