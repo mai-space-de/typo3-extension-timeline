@@ -1,18 +1,15 @@
 <?php
-
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'Timeline',
-    'description' => 'A timeline extension for TYPO3 with vertical, compact, and detail views.',
-    'category' => 'plugin',
-    'author' => 'maispace',
+    'title' => 'Mai Timeline',
+    'description' => 'Timeline extension with vertical, compact, and detail views for displaying chronological content. Categories use TYPO3 `sys_category`, sharing the same tree as `mai_news`, `mai_gallery`, and `mai_faq`.',
+    'category' => 'module',
+    'author' => 'Maispace',
     'author_email' => '',
-    'author_company' => 'maispace',
     'state' => 'stable',
     'version' => '1.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.0.0-12.99.99',
-            'php' => '8.1.0-8.99.99',
+            'typo3' => '13.4.0-14.99.99',
         ],
         'conflicts' => [],
         'suggests' => [],
