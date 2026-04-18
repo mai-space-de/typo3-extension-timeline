@@ -2,6 +2,12 @@
 
 declare(strict_types=1);
 
+use Maispace\MaiBase\TableConfigurationArray\FieldConfig\CategoryConfig;
+use Maispace\MaiBase\TableConfigurationArray\FieldConfig\DatetimeConfig;
+use Maispace\MaiBase\TableConfigurationArray\FieldConfig\FileConfig;
+use Maispace\MaiBase\TableConfigurationArray\FieldConfig\InputConfig;
+use Maispace\MaiBase\TableConfigurationArray\FieldConfig\NumberConfig;
+use Maispace\MaiBase\TableConfigurationArray\FieldConfig\TextConfig;
 use Maispace\MaiBase\TableConfigurationArray\Helper;
 use Maispace\MaiBase\TableConfigurationArray\Table;
 
@@ -18,49 +24,37 @@ return (new Table($lang('table.tx_maitimeline_entry')))
     ->addColumn(
         'title',
         $lang('tx_maitimeline_entry.title'),
-        ['type' => 'input', 'size' => 50, 'max' => 255, 'eval' => 'trim,required']
+        (new InputConfig())->setSize(50)->setMax(255)->setEval('trim,required')
     )
     ->addColumn(
         'content',
         $lang('tx_maitimeline_entry.content'),
-        [
-            'type' => 'text',
-            'rows' => 15,
-            'cols' => 50,
-            'enableRichtext' => true,
-            'richtextConfiguration' => 'default',
-        ]
+        (new TextConfig())->setRows(15)->setCols(50)->enableRte()->setRichtextConfiguration('default')
     )
     ->addColumn(
         'date',
         $lang('tx_maitimeline_entry.date'),
-        ['type' => 'datetime', 'format' => 'date', 'eval' => 'required']
+        (new DatetimeConfig())->setFormat('date')->setRequired()
     )
     ->addColumn(
         'year',
         $lang('tx_maitimeline_entry.year'),
-        [
-            'type' => 'number',
-            'format' => 'integer',
-            'range' => ['lower' => 1900, 'upper' => 2100],
-        ]
+        (new NumberConfig())->setFormat('integer')->setRange(1900, 2100)
     )
     ->addColumn(
         'image',
         $lang('tx_maitimeline_entry.image'),
-        [
-            'type' => 'file',
-            'allowed' => 'common-image-types',
-            'maxitems' => 1,
-            'appearance' => [
+        (new FileConfig())
+            ->setAllowed('common-image-types')
+            ->setMaxItems(1)
+            ->setAppearance([
                 'createNewRelationLinkTitle' => $lang('tx_maitimeline_entry.image.addFile'),
-            ],
-        ]
+            ])
     )
     ->addColumn(
         'categories',
         $lang('tx_maitimeline_entry.categories'),
-        ['type' => 'category']
+        new CategoryConfig()
     )
     ->addTypeShowItem(
         '0',
