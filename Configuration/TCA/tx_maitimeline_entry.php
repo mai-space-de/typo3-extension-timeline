@@ -17,14 +17,13 @@ return (new Table($lang('table.tx_maitimeline_entry')))
     ->setDefaultConfig()
     ->setLabel('title')
     ->setAlternativeLabelFields('date')
-    ->setSearchFields('title, content')
     ->setIconFile('EXT:mai_timeline/Resources/Public/Icons/tx_maitimeline_entry.svg')
     ->setDefaultSorting('ORDER BY date DESC')
     ->setThumbnailField('image')
     ->addColumn(
         'title',
         $lang('tx_maitimeline_entry.title'),
-        (new InputConfig())->setSize(50)->setMax(255)->setEval('trim,required')
+        (new InputConfig())->setSize(50)->setMax(255)->setEval('trim')->setRequired()
     )
     ->addColumn(
         'content',
