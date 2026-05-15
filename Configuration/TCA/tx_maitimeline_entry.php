@@ -17,7 +17,7 @@ return (new Table($lang('table.tx_maitimeline_entry')))
     ->setDefaultConfig()
     ->setLabel('title')
     ->setAlternativeLabelFields('date')
-    ->setIconFile('EXT:mai_timeline/Resources/Public/Icons/tx_maitimeline_entry.svg')
+    ->setIconFile('EXT:mai_base/Resources/Public/Icons/generic_table.svg')
     ->setDefaultSorting('ORDER BY date DESC')
     ->setThumbnailField('image')
     ->addColumn(
