@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:if condition="{entries}">
+    <f:then>
+        <section class="mai-timeline"
+                 data-ce-uid="{data.uid}"
+                 aria-label="{f:if(condition: data.header, then: data.header, else: 'Timeline')}">
+            <f:if condition="{data.header}">
+                <h2 class="mai-timeline__title">{data.header}</h2>
+            </f:if>
+            <ol class="mai-timeline__list">
+                <f:for each="{entries}" as="entry" iteration="it">
+                    <li class="mai-timeline__item"
+                        aria-posinset="{it.cycle}"
+                        aria-setsize="{it.total}"
+                        id="timeline-{data.uid}-{it.cycle}">
+                        <article class="mai-timeline__entry">
+                            <f:if condition="{entry.date}">
+                                <time class="mai-timeline__date"
+                                      datetime="{entry.date -> f:format.date(format: 'Y-m-d')}">
+                                    {entry.date -> f:format.date(format: 'd.m.Y')}
+                                </time>
+                            </f:if>
+                            <h3 class="mai-timeline__title">{entry.title}</h3>
+                            <f:if condition="{entry.images.0}">
+                                <figure class="mai-timeline__media">
+                                    <f:image image="{entry.images.0}"
+                                             alt="{entry.title}"
+                                             class="mai-timeline__image"
+                                             loading="lazy"/>
+                                </figure>
+                            </f:if>
+                            <f:if condition="{entry.content}">
+                                <div class="mai-timeline__description">
+                                    {entry.content -> f:format.html()}
+                                </div>
+                            </f:if>
+                        </article>
+                    </li>
+                </f:for>
+            </ol>
+        </section>
+    </f:then>
+    <f:else>
+        <p class="mai-timeline__empty">{f:translate(key: 'timeline.noEntries', extensionName: 'mai_timeline')}</p>
+    </f:else>
+</f:if>
+</html>

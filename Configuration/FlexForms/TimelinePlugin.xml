@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:mai_timeline/Resources/Private/Language/Default/locallang_db.xlf:flexform.sheet.general</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.storagePid>
+                        <TCEforms>
+                            <label>LLL:EXT:mai_timeline/Resources/Private/Language/Default/locallang_db.xlf:flexform.field.storagePid</label>
+                            <config>
+                                <type>group</type>
+                                <allowed>pages</allowed>
+                                <size>1</size>
+                                <maxitems>1</maxitems>
+                                <minitems>0</minitems>
+                            </config>
+                        </TCEforms>
+                    </settings.storagePid>
+                    <settings.categoryUid>
+                        <TCEforms>
+                            <label>LLL:EXT:mai_timeline/Resources/Private/Language/Default/locallang_db.xlf:flexform.field.categoryUid</label>
+                            <config>
+                                <type>category</type>
+                                <relationship>manyToOne</relationship>
+                            </config>
+                        </TCEforms>
+                    </settings.categoryUid>
+                    <settings.limit>
+                        <TCEforms>
+                            <label>LLL:EXT:mai_timeline/Resources/Private/Language/Default/locallang_db.xlf:flexform.field.limit</label>
+                            <config>
+                                <type>number</type>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </settings.limit>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

@@ -23,22 +23,22 @@ return (new Table($lang('table.tx_maitimeline_entry')))
     ->addColumn(
         'title',
         $lang('tx_maitimeline_entry.title'),
-        (new InputConfig())->setSize(50)->setMax(255)->setEval('trim')->setRequired()
+        (new InputConfig())->setSize(50)->setMax(255)->setEval('trim')->setRequired(),
     )
     ->addColumn(
         'content',
         $lang('tx_maitimeline_entry.content'),
-        (new TextConfig())->setRows(15)->setCols(50)->enableRte()->setRichtextConfiguration('default')
+        (new TextConfig())->setRows(15)->setCols(50)->enableRte()->setRichtextConfiguration('default'),
     )
     ->addColumn(
         'date',
         $lang('tx_maitimeline_entry.date'),
-        (new DatetimeConfig())->setFormat('date')->setRequired()
+        (new DatetimeConfig())->setFormat('date')->setRequired(),
     )
     ->addColumn(
         'year',
         $lang('tx_maitimeline_entry.year'),
-        (new NumberConfig())->setFormat('integer')->setRange(1900, 2100)
+        (new NumberConfig())->setFormat('integer')->setRange(1900, 2100),
     )
     ->addColumn(
         'image',
@@ -48,17 +48,17 @@ return (new Table($lang('table.tx_maitimeline_entry')))
             ->setMaxItems(1)
             ->setAppearance([
                 'createNewRelationLinkTitle' => $lang('tx_maitimeline_entry.image.addFile'),
-            ])
+            ]),
     )
     ->addColumn(
         'categories',
         $lang('tx_maitimeline_entry.categories'),
-        new CategoryConfig()
+        new CategoryConfig(),
     )
     ->addTypeShowItem(
         '0',
         'title, date, year, content, image, categories,
         --div--;' . $lang('tab.language') . ', --palette--;;language,
-        --div--;' . $lang('tab.access') . ', --palette--;;hidden, --palette--;;access'
+        --div--;' . $lang('tab.access') . ', --palette--;;hidden, --palette--;;access',
     )
     ->getConfig();

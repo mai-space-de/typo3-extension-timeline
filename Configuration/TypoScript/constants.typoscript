@@ -1,0 +1,19 @@
+# mai_timeline TypoScript Constants
+
+plugin.tx_maitimeline {
+    view {
+        templateRootPaths {
+            0 = EXT:mai_timeline/Resources/Private/Templates/
+        }
+        partialRootPaths {
+            0 = EXT:mai_timeline/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            0 = EXT:mai_timeline/Resources/Private/Layouts/
+        }
+    }
+    settings {
+        storagePid =
+        limit = 0
+    }
+}
