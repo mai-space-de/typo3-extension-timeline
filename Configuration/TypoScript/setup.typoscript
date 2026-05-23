@@ -2,10 +2,8 @@
 
 @import 'EXT:mai_timeline/Configuration/TypoScript/ContentElements/MaispaceTimeline.typoscript'
 
-tt_content {
-    mai_timeline_list = FLUIDTEMPLATE
-    mai_timeline_list {
-        templateName = Timeline/List
+plugin.tx_maitimeline_timelinelist {
+    view {
         templateRootPaths {
             0 = {$plugin.tx_maitimeline.view.templateRootPaths.0}
         }
@@ -15,28 +13,24 @@ tt_content {
         layoutRootPaths {
             0 = {$plugin.tx_maitimeline.view.layoutRootPaths.0}
         }
-        dataProcessing {
-            10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-            10 {
-                table = tx_maitimeline_entry
-                pidInList {
-                    data = flexform:settings.storagePid
-                    ifEmpty = {$plugin.tx_maitimeline.settings.storagePid}
-                }
-                orderBy = date DESC
-                max {
-                    data = flexform:settings.limit
-                    ifEmpty = {$plugin.tx_maitimeline.settings.limit}
-                }
-                as = entries
-                dataProcessing {
-                    10 = {$tx_maitimeline.processor.files}
-                    10 {
-                        references.fieldName = image
-                        as = images
-                    }
-                }
-            }
-        }
+    }
+    persistence {
+        storagePid = {$plugin.tx_maitimeline.settings.storagePid}
+    }
+    settings {
+        storagePid = {$plugin.tx_maitimeline.settings.storagePid}
+        categoryUid = 0
+        limit = 0
+    }
+}
+
+tt_content {
+    mai_timeline_list =< plugin.tx_maitimeline_timelinelist
+    mai_timeline_list = USER
+    mai_timeline_list {
+        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+        extensionName = MaiTimeline
+        pluginName = TimelineList
+        vendorName = Maispace
     }
 }

@@ -22,9 +22,9 @@
                                 </time>
                             </f:if>
                             <h3 class="mai-timeline__title">{entry.title}</h3>
-                            <f:if condition="{entry.images.0}">
+                            <f:if condition="{entry.image -> f:count()}">
                                 <figure class="mai-timeline__media">
-                                    <f:image image="{entry.images.0}"
+                                    <f:image image="{entry.image.0}"
                                              alt="{entry.title}"
                                              class="mai-timeline__image"
                                              loading="lazy"/>
