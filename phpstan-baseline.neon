@@ -1,2 +1,13 @@
 parameters:
 	ignoreErrors:
+		-
+			message: '#^Call to method addDefaultHeaderPalette\(\) on an unknown class Maispace\\MaiBase\\ContentElement\\CType\.$#'
+			identifier: class.notFound
+			count: 1
+			path: Configuration/TCA/Overrides/tt_content.php
+
+		-
+			message: '#^Instantiated class Maispace\\MaiBase\\ContentElement\\CType not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: Configuration/TCA/Overrides/tt_content.php

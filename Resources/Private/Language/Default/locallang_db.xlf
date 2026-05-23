@@ -21,6 +21,12 @@
             <trans-unit id="flexform.field.limit">
                 <source>Maximum Entries (0 = all)</source>
             </trans-unit>
+            <trans-unit id="ctype.timeline">
+                <source>Timeline</source>
+            </trans-unit>
+            <trans-unit id="field.items">
+                <source>Items</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
