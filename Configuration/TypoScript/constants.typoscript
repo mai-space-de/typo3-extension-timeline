@@ -1,5 +1,9 @@
 # mai_timeline TypoScript Constants
 
+# DataProcessor class name — referenced in multiple TypoScript includes.
+# A constant avoids the RepeatingRValue lint warning for the same literal.
+tx_maitimeline.processor.files = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+
 plugin.tx_maitimeline {
     view {
         templateRootPaths {

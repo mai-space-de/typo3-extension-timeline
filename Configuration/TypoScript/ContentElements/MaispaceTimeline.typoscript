@@ -1,0 +1,47 @@
+# maispace_timeline — inline content element (extracted from mai_theme).
+#
+# Template path priorities:
+#   templates: mai_timeline (110) overrides mai_theme (100) — so
+#              ContentElements/Timeline.html is resolved from this extension.
+#   partials:  mai_theme (110) overrides mai_timeline (100) — so shared
+#              atoms like Atom/Heading fall through to the theme's version.
+#              Timeline-specific partials (Organism/Timeline, Items/TimelineItem)
+#              are not in the theme, so they resolve from this extension.
+
+tt_content {
+    maispace_timeline = FLUIDTEMPLATE
+    maispace_timeline {
+        templateName = Timeline
+        templateRootPaths {
+            100 = EXT:mai_theme/Resources/Private/Templates/ContentElements/
+            110 = EXT:mai_timeline/Resources/Private/Templates/ContentElements/
+        }
+        partialRootPaths {
+            100 = {$plugin.tx_maitimeline.view.partialRootPaths.0}
+            110 = EXT:mai_theme/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            100 = EXT:mai_theme/Resources/Private/Layouts/
+        }
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            10 {
+                table = tx_maitimeline_item
+                pidInList.field = pid
+                where {
+                    data = field:uid
+                    wrap = parent_uid=|
+                }
+                orderBy = sort
+                as = items
+                dataProcessing {
+                    10 = {$tx_maitimeline.processor.files}
+                    10 {
+                        references.fieldName = image
+                        as = images
+                    }
+                }
+            }
+        }
+    }
+}

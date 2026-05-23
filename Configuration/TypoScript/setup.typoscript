@@ -1,5 +1,7 @@
 # mai_timeline TypoScript Setup
 
+@import 'EXT:mai_timeline/Configuration/TypoScript/ContentElements/MaispaceTimeline.typoscript'
+
 tt_content {
     mai_timeline_list = FLUIDTEMPLATE
     mai_timeline_list {
@@ -28,7 +30,7 @@ tt_content {
                 }
                 as = entries
                 dataProcessing {
-                    10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                    10 = {$tx_maitimeline.processor.files}
                     10 {
                         references.fieldName = image
                         as = images
