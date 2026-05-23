@@ -6,16 +6,12 @@ defined('TYPO3') or die();
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-ExtensionManagementUtility::addPlugin(
-    [
-        'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/Default/locallang_db.xlf:tt_content.CType.mai_timeline_list',
-        'value' => 'mai_timeline_list',
-        'icon' => 'mai-content',
-        'group' => 'default',
-    ],
-    'CType',
-    'mai_timeline'
-);
+ExtensionManagementUtility::addPlugin([
+    'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/Default/locallang_db.xlf:tt_content.CType.mai_timeline_list',
+    'value' => 'mai_timeline_list',
+    'icon' => 'mai-content',
+    'group' => 'default',
+]);
 
 $GLOBALS['TCA']['tt_content']['types']['mai_timeline_list'] = [
     'showitem' => '

@@ -17,11 +17,15 @@ tt_content {
             10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
             10 {
                 table = tx_maitimeline_entry
-                pidInList.data = flexform:settings.storagePid
-                pidInList.ifEmpty = {$plugin.tx_maitimeline.settings.storagePid}
+                pidInList {
+                    data = flexform:settings.storagePid
+                    ifEmpty = {$plugin.tx_maitimeline.settings.storagePid}
+                }
                 orderBy = date DESC
-                max.data = flexform:settings.limit
-                max.ifEmpty = {$plugin.tx_maitimeline.settings.limit}
+                max {
+                    data = flexform:settings.limit
+                    ifEmpty = {$plugin.tx_maitimeline.settings.limit}
+                }
                 as = entries
                 dataProcessing {
                     10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
