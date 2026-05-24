@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 defined('TYPO3') or die();
 
-use Maispace\MaiBase\ContentElement\CType;
+use Maispace\MaiBase\TableConfigurationArray\CType;
 use Maispace\MaiBase\TableConfigurationArray\Helper;
 
 $lang = Helper::localLangHelperFactory('mai_timeline', 'Default/locallang_db.xlf');
