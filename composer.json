@@ -9,9 +9,20 @@
             "role": "Developer"
         }
     ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../typo3-extension-base"
+        },
+        {
+            "type": "path",
+            "url": "../typo3-extension-search"
+        }
+    ],
     "require": {
         "php": "^8.2",
         "maispace/mai-base": "^14.0",
+        "maispace/mai-search": "^14.0",
         "typo3/cms-core": "^14.1"
     },
     "require-dev": {
