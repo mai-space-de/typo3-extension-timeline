@@ -25,19 +25,48 @@ Records are sorted by `date DESC` by default (most-recent event first).
 - The same `sys_category` tree is shared with `mai_news`, `mai_gallery`, `mai_faq`, and
   `mai_testimonials`, enabling a single category hierarchy across all record types.
 
-## Design: TCA-Only Data Extension
+## Extbase Plugin: `mai_timeline_list`
 
-`mai_timeline` is deliberately a **data-definition extension** with no PHP controller classes.
-The `Classes/` directory contains only a `.gitkeep` placeholder.
+`mai_timeline` ships a fully registered Extbase plugin that renders `tx_maitimeline_entry`
+records on the frontend.
 
-This design means:
+### Plugin Registration
 
-- No Extbase plugin is registered — there is no `ext_localconf.php`.
-- No TypoScript setup is shipped — there are no view-path constants or plugin configuration.
-- No FlexForm is included — editors cannot yet place a timeline content element using
-  this extension's records.
-- Frontend rendering of `tx_maitimeline_entry` records is pending (see **Planned Rendering**
-  below).
+Registered in `ext_localconf.php` as:
+
+```
+Extension key : MaiTimeline
+Plugin name   : TimelineList
+Controller    : TimelineController → list action
+```
+
+Editors insert it as a standard TYPO3 plugin content element (`CType = list`,
+`list_type = maitimeline_timelinelist`).
+
+### `TimelineController::listAction()`
+
+The single action reads three FlexForm settings and passes a filtered result set to the
+Fluid view:
+
+| FlexForm setting | Type | Behaviour |
+|---|---|---|
+| `settings.storagePid` | page group (0–1 item) | Restricts the Extbase query to the selected storage page. 0 = respect TypoScript `persistence.storagePid`. |
+| `settings.categoryUid` | category (manyToOne) | Filters entries via `EntryRepository::findByCategoryUid()`. 0 = all categories. |
+| `settings.limit` | integer | Caps result count via `setLimit()`. 0 = no limit. |
+
+The view receives a single `entries` variable — a `QueryResultInterface<Entry>` ordered by
+`date DESC`.
+
+### `EntryRepository`
+
+Two public query methods:
+
+- `findByCategoryUid(int $categoryUid, int $limit = 0): QueryResultInterface<Entry>` —
+  filters by `categories` MM relation; applies optional limit.
+- `findAllWithLimit(int $limit = 0): QueryResultInterface<Entry>` — full set with optional
+  limit.
+
+Both inherit `defaultOrderings = ['date' => ORDER_DESCENDING]`.
 
 ## Relationship to `mai_theme` Timeline Organism
 
@@ -59,22 +88,6 @@ different use cases:
 | Categories | None | `sys_category` (manyToMany) |
 | Content field | `description` RTE | `content` RTE |
 | Use case | Embedded, page-specific timelines | Shared historical records across pages |
-
-## Planned Rendering Integration
-
-The frontend rendering of `tx_maitimeline_entry` records is defined as **task timeline-1**:
-"Author the Fluid component contract once `mai_theme` exposes its timeline organism."
-
-When implemented, the expected approach is an Extbase plugin (registered in
-`ext_localconf.php`) with a controller action that:
-
-1. Queries `tx_maitimeline_entry` via an `EntryRepository`.
-2. Accepts FlexForm settings for `storagePid`, `categoryUid`, and optional `limit`.
-3. Passes results to Fluid templates that reuse `mai_theme`'s
-   `Partial/Organism/Timeline.html` and `Partial/Items/TimelineItem.html` components
-   (adapting `event_date`/`title`/`description`/`images` variables to match the
-   `tx_maitimeline_entry` field names).
-4. Applies date-based grouping (by `year`) as an optional display mode.
 
 ## Backend Icon
 
