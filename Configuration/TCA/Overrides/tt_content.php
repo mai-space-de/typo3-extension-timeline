@@ -37,14 +37,16 @@ $GLOBALS['TCA']['tt_content']['columns']['tx_maitimeline_items'] = [
     ],
 ];
 
-// Legacy plugin support (kept for backward compatibility)
+// Legacy plugin support (kept for backward compatibility). Superseded by the
+// maispace_timeline CType above — hidden from the wizard (see
+// elements_wizard.tsconfig), existing content keeps rendering.
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 ExtensionManagementUtility::addPlugin([
     'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/Default/locallang_db.xlf:tt_content.CType.mai_timeline_list',
     'value' => 'mai_timeline_list',
     'icon' => 'mai-content',
-    'group' => 'default',
+    'group' => 'maispace_plugins_lists',
 ]);
 
 $GLOBALS['TCA']['tt_content']['types']['mai_timeline_list'] = [
