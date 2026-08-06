@@ -6,6 +6,8 @@ namespace Maispace\MaiTimeline\Controller;
 
 use Maispace\MaiTimeline\Domain\Repository\EntryRepository;
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Pagination\QueryBuilderPaginator;
+use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -27,26 +29,30 @@ final class TimelineController extends ActionController
      * List action — renders timeline entries from tx_maitimeline_entry.
      *
      * Applies storage PID, category filter, and limit from FlexForm settings.
+     * Uses QueryBuilderPaginator for efficient pagination.
      */
-    public function listAction(): ResponseInterface
+    public function listAction(int $page = 1): ResponseInterface
     {
         $storagePid = (int) ($this->settings['storagePid'] ?? 0);
         $categoryUid = (int) ($this->settings['categoryUid'] ?? 0);
-        $limit = (int) ($this->settings['limit'] ?? 0);
+        $itemsPerPage = (int) ($this->settings['limit'] ?? 10);
 
-        if ($storagePid > 0) {
-            $this->entryRepository->setDefaultQuerySettings(
-                $this->entryRepository->createQuery()->getQuerySettings()->setStoragePageIds([$storagePid]),
-            );
-        }
+        $queryBuilder = $this->entryRepository->createQueryBuilderForPagination($storagePid, $categoryUid);
 
-        if ($categoryUid > 0) {
-            $entries = $this->entryRepository->findByCategoryUid($categoryUid, $limit);
-        } else {
-            $entries = $this->entryRepository->findAllWithLimit($limit);
-        }
+        $paginator = new QueryBuilderPaginator(
+            $queryBuilder,
+            $page,
+            $itemsPerPage
+        );
 
-        $this->view->assign('entries', $entries);
+        $pagination = new SimplePagination($paginator);
+
+        $this->view->assignMultiple([
+            'entries' => $paginator->getPaginatedItems(),
+            'pagination' => $pagination,
+            'paginator' => $paginator,
+            'currentPage' => $page,
+        ]);
 
         return $this->htmlResponse();
     }

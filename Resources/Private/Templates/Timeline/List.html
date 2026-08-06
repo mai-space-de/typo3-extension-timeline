@@ -32,7 +32,7 @@
                             </f:if>
                             <f:if condition="{entry.content}">
                                 <div class="mai-timeline__description">
-                                    {entry.content -> f:format.html()}
+                                    <f:render.text record="{entry}" field="content" />
                                 </div>
                             </f:if>
                         </article>
