@@ -4,18 +4,47 @@ declare(strict_types=1);
 
 namespace Maispace\MaiTimeline\Tests\Unit\Indexer;
 
+use Maispace\MaiSearch\Domain\Service\SearchBackendInterface;
+use Maispace\MaiSearch\Service\BackendRegistry;
 use Maispace\MaiTimeline\Domain\Model\Entry;
 use Maispace\MaiTimeline\Indexer\TimelineIndexer;
 use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 final class TimelineIndexerTest extends TestCase
 {
     private TimelineIndexer $subject;
+    private BackendRegistry&MockObject $backendRegistry;
+    private SearchBackendInterface&MockObject $activeBackend;
 
     protected function setUp(): void
     {
         $this->subject = new TimelineIndexer();
+
+        $this->activeBackend = $this->createMock(SearchBackendInterface::class);
+        $this->backendRegistry = $this->createMock(BackendRegistry::class);
+        $this->backendRegistry->method('getActive')->willReturn($this->activeBackend);
+        $this->subject->injectBackendRegistry($this->backendRegistry);
+    }
+
+    #[Test]
+    public function removeRecordDelegatesToActiveBackend(): void
+    {
+        $this->activeBackend
+            ->expects(self::once())
+            ->method('removeDocument')
+            ->with('timeline', 42);
+
+        $this->subject->removeRecord(42, 'tx_maitimeline_entry');
+    }
+
+    #[Test]
+    public function removeRecordIsNoOpForUnsupportedTable(): void
+    {
+        $this->activeBackend->expects(self::never())->method('removeDocument');
+
+        $this->subject->removeRecord(42, 'tx_mainews_news');
     }
 
     #[Test]
