@@ -10,7 +10,7 @@ use Maispace\MaiBase\TableConfigurationArray\Helper;
 $lang = Helper::localLangHelperFactory('mai_timeline', 'Default/locallang_db.xlf');
 
 // Timeline content element (moved from mai_theme)
-(new CType('maispace_timeline', $lang('ctype.timeline'), 'content-list-bullet'))
+(new CType('maispace_timeline', $lang('ctype.timeline'), 'mai-timeline'))
     ->addDefaultHeaderPalette()
     ->addCustomFields('tx_maitimeline_items')
     ->addDefaultLanguageTab()
@@ -45,7 +45,7 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 ExtensionManagementUtility::addPlugin([
     'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/Default/locallang_db.xlf:tt_content.CType.mai_timeline_list',
     'value' => 'mai_timeline_list',
-    'icon' => 'mai-content',
+    'icon' => 'mai-timeline',
     'group' => 'maispace_plugins_lists',
 ]);
 

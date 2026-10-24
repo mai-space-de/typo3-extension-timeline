@@ -23,7 +23,7 @@ return (new Table($lang('item.timeline')))
     ->setTranslationOriginDiffSourceField()
     ->hideTableInLists(true)
     ->enableVersioning()
-    ->setIconForType('default', 'content-list-bullet')
+    ->setIconForType('default', 'mai-timeline')
     ->addColumn('parent_uid', '', new PassthroughConfig())
     ->addColumn('sort', '', new PassthroughConfig())
     ->addColumn(
