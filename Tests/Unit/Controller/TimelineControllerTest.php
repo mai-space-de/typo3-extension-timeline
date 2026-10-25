@@ -82,12 +82,12 @@ final class TimelineControllerTest extends TestCase
     #[Test]
     public function listActionReadsSettingsForStoragePidCategoryUidLimit(): void
     {
-        // listAction reads storagePid, categoryUid, and limit from $this->settings
-        // (FlexForm values) rather than from action arguments. Verify the method
-        // declares no parameters — confirming it relies on settings injection.
+        // storagePid, categoryUid and limit come from FlexForm settings.
+        // The only action argument is the pagination page.
         $params = (new \ReflectionMethod(TimelineController::class, 'listAction'))
             ->getParameters();
 
-        self::assertCount(0, $params);
+        self::assertCount(1, $params);
+        self::assertSame('page', $params[0]->getName());
     }
 }

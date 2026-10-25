@@ -92,7 +92,7 @@ class EntryRepository extends Repository
         if ($storagePid > 0) {
             $queryBuilder
                 ->andWhere(
-                    $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($storagePid, \PDO::PARAM_INT))
+                    $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($storagePid, \PDO::PARAM_INT)),
                 );
         }
 
@@ -103,16 +103,16 @@ class EntryRepository extends Repository
                     'tx_maitimeline_entry',
                     'sys_category_record_mm',
                     'mm',
-                    $queryBuilder->expr()->eq('mm.uid_foreign', $queryBuilder->quoteIdentifier('tx_maitimeline_entry.uid'))
+                    $queryBuilder->expr()->eq('mm.uid_foreign', $queryBuilder->quoteIdentifier('tx_maitimeline_entry.uid')),
                 )
                 ->andWhere(
-                    $queryBuilder->expr()->eq('mm.uid_local', $queryBuilder->createNamedParameter($categoryUid, \PDO::PARAM_INT))
+                    $queryBuilder->expr()->eq('mm.uid_local', $queryBuilder->createNamedParameter($categoryUid, \PDO::PARAM_INT)),
                 )
                 ->andWhere(
-                    $queryBuilder->expr()->eq('mm.tablenames', $queryBuilder->createNamedParameter('tx_maitimeline_entry'))
+                    $queryBuilder->expr()->eq('mm.tablenames', $queryBuilder->createNamedParameter('tx_maitimeline_entry')),
                 )
                 ->andWhere(
-                    $queryBuilder->expr()->eq('mm.fieldname', $queryBuilder->createNamedParameter('categories'))
+                    $queryBuilder->expr()->eq('mm.fieldname', $queryBuilder->createNamedParameter('categories')),
                 );
         }
 

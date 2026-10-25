@@ -42,7 +42,7 @@ final class TimelineController extends ActionController
         $paginator = new QueryBuilderPaginator(
             $queryBuilder,
             $page,
-            $itemsPerPage
+            $itemsPerPage,
         );
 
         $pagination = new SimplePagination($paginator);
