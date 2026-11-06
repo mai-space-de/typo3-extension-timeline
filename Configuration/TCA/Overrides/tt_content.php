@@ -63,9 +63,7 @@ $GLOBALS['TCA']['tt_content']['types']['mai_timeline_list'] = [
         'pi_flexform' => [
             'label' => 'LLL:EXT:mai_timeline/Resources/Private/Language/Default/locallang_db.xlf:tt_content.pi_flexform.mai_timeline_list',
             'config' => [
-                'ds' => [
-                    'default' => 'FILE:EXT:mai_timeline/Configuration/FlexForms/TimelinePlugin.xml',
-                ],
+                'ds' => 'FILE:EXT:mai_timeline/Configuration/FlexForms/TimelinePlugin.xml',
             ],
         ],
     ],
