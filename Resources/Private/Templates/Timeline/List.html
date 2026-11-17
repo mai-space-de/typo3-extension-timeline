@@ -1,4 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:mai="http://typo3.org/ns/Maispace/MaiAssets/ViewHelpers"
       data-namespace-typo3-fluid="true">
 <f:if condition="{entries}">
     <f:then>
@@ -24,10 +25,12 @@
                             <h3 class="mai-timeline__title">{entry.title}</h3>
                             <f:if condition="{entry.image -> f:count()}">
                                 <figure class="mai-timeline__media">
-                                    <f:image image="{entry.image.0}"
-                                             alt="{entry.title}"
-                                             class="mai-timeline__image"
-                                             loading="lazy"/>
+                                    <mai:image.picture image="{entry.image.0}"
+                                                       alt="{entry.title}"
+                                                       class="mai-timeline__image"
+                                                       slot="timeline"
+                                                       elementUid="{data.uid}"
+                                                       critical="false"/>
                                 </figure>
                             </f:if>
                             <f:if condition="{entry.content}">

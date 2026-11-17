@@ -17,7 +17,10 @@
         <f:render partial="Atom/Heading" arguments="{level: 3, text: item.title, class: 'mai-timeline__title'}"/>
         <f:if condition="{item.images.0}">
             <mai:image.figure caption="" class="mai-timeline__media">
-                <mai:image.picture image="{item.images.0}" alt="{item.title}"/>
+                <mai:image.picture image="{item.images.0}"
+                                   alt="{item.title}"
+                                   slot="timeline"
+                                   elementUid="{parentUid}"/>
             </mai:image.figure>
         </f:if>
         <f:if condition="{item.description}">
